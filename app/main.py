@@ -66,7 +66,7 @@ def login(
         "access_token": access_token,
         "token_type": "bearer"
     }
-@app.get("/me")
+@app.get("/me", response_model=schemas.UserResponse)
 def get_me(
     current_user: models.User = Depends(get_current_user)
 ):

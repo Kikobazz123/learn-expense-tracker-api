@@ -53,7 +53,6 @@ def test_me_returns_the_current_user(client, auth_headers):
     assert r.json()["email"] == "alice@example.com"
 
 
-@pytest.mark.xfail(strict=True, reason="bug: /me has no response_model")
 def test_me_does_not_expose_the_password_hash(client, auth_headers):
     body = client.get("/me", headers=auth_headers).json()
     assert "password" not in body
