@@ -18,3 +18,8 @@ expenses.db
 
 # macOS
 .DS_Store
+
+# Tooling
+.venv/
+.pytest_cache/
+.ruff_cache/
