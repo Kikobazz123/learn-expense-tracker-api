@@ -23,6 +23,21 @@ def register_user(
     user: schemas.UserCreate,
     db: Session = Depends(get_db)
 ):
+    existing = (
+        db.query(models.User)
+        .filter(
+            (models.User.email == user.email)
+            | (models.User.username == user.username)
+        )
+        .first()
+    )
+
+    if existing:
+        raise HTTPException(
+            status_code=400,
+            detail="Username or email already registered"
+        )
+
     new_user = models.User(
         username=user.username,
         email=user.email,

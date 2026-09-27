@@ -1,5 +1,3 @@
-import pytest
-
 from tests.conftest import login, register
 
 
@@ -58,7 +56,6 @@ def test_me_does_not_expose_the_password_hash(client, auth_headers):
     assert "password" not in body
 
 
-@pytest.mark.xfail(strict=True, reason="bug: IntegrityError surfaces as 500")
 def test_duplicate_registration_is_a_client_error(client):
     register(client)
     assert register(client).status_code == 400
