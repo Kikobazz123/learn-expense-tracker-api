@@ -25,7 +25,6 @@ def test_create_rejects_unknown_category(client, auth_headers):
     assert r.status_code == 422
 
 
-@pytest.mark.xfail(strict=True, reason="bug: duplicate ExpenseCreate drops validation")
 @pytest.mark.parametrize("amount", [0, -5])
 def test_create_rejects_non_positive_amount(client, auth_headers, amount):
     r = client.post(
@@ -36,7 +35,6 @@ def test_create_rejects_non_positive_amount(client, auth_headers, amount):
     assert r.status_code == 422
 
 
-@pytest.mark.xfail(strict=True, reason="bug: duplicate ExpenseCreate drops validation")
 def test_create_rejects_one_character_title(client, auth_headers):
     r = client.post(
         "/expenses",

@@ -43,12 +43,6 @@ class Token(BaseModel):
     token_type: str
 
 
-class ExpenseCreate(BaseModel):
-    title: str
-    amount: float
-    category: ExpenseCategory
-
-
 class ExpenseResponse(BaseModel):
     id: int
     title: str
