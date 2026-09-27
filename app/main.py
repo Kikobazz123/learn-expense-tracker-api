@@ -1,12 +1,12 @@
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from sqlalchemy import func 
-from fastapi import HTTPException
-from app.auth import create_access_token, get_current_user
-from app.security import hash_password, verify_password
-from app.database import Base, engine, get_db
-from app import models, schemas
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
+from sqlalchemy import func
+from sqlalchemy.orm import Session
+
+from app import models, schemas
+from app.auth import create_access_token, get_current_user
+from app.database import Base, engine, get_db
+from app.security import hash_password, verify_password
 
 app = FastAPI(title="Expense Tracker API")
 

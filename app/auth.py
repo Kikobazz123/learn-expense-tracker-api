@@ -1,12 +1,13 @@
 import os
 from datetime import datetime, timedelta
-from jose import JWTError, jwt
+
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError, jwt
 from sqlalchemy.orm import Session
 
-from app.database import get_db
 from app import models
+from app.database import get_db
 
 SECRET_KEY = os.getenv("SECRET_KEY", "this_is_my_secret_key_change_later")
 ALGORITHM = "HS256"

@@ -1,6 +1,8 @@
-from pydantic import BaseModel, EmailStr, Field
-from enum import Enum
 from datetime import datetime
+from enum import Enum
+
+from pydantic import BaseModel, EmailStr, Field
+
 
 class ExpenseCategory(str, Enum):
     Food = "Food"
